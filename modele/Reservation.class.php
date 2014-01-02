@@ -61,18 +61,18 @@ class Reservation {
                     'Reply-To: ' . $email_client . '' . "\r\n" .
                     'X-Mailer: PHP/' . phpversion();
             //Dans le cas où la demande est rejetée 
-            $message = "Merci d'avoir choisi notre organisation pour vos vacances. ---------------- \r"
-                    . "rappel de vos informations de compte : client numéro " . $id_client . "----------------";
+            $message = "Merci d'avoir choisi notre organisation pour vos vacances. \r ---------------- \r"
+                    . "rappel de vos informations de compte : client numéro " . $id_client . " \r ---------------- \r";
             if ($choix == "refuse"):
                 include "conn_sql.php";
                 //La réservation est supprimée
                 $bdd->query('DELETE FROM ppe_reservation WHERE id_reservation="' . $id_reservation . '"');
                 $message.="Un administrateur à consulté votre demande de réservation et à imposé une réponse négative. "
-                        . " en effet malgré la valeur de votre demande, nous ne sommes pas en mesure de faire suite à votre requête."
-                        . " Voici le message de l'administrateur:";
+                        . " En effet malgré la valeur de votre demande, nous ne sommes pas en mesure de faire suite à votre requête.\r"
+                        . " Voici le message de l'administrateur: \r";
             //Dans le cas où la demande est acceptée 
             else: $message.="Un administrateur à consulté votre demande de réservation et à imposé une réponse positive. "
-                        . " Un de nos secretaires prendra contact avec vous par voix téléphonique pour finaliser cette étape.";
+                        . " Un de nos secretaires prendra contact avec vous par voix téléphonique pour finaliser cette étape. \r";
                 include "conn_sql.php";
                 //La réservation est validée
                 $bdd->exec('UPDATE ppe_reservation SET valide = 1 WHERE id_reservation = ' . $id_reservation . '');
