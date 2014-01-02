@@ -1,0 +1,77 @@
+body{
+    background: url("../../modele/images/body.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+#conteneur{
+    margin:27px auto;
+    width:901px;
+    box-shadow: 1px 1px 6px #555555;
+}
+#top{
+    height:220px;
+    background-image:url(../../modele/images/header.jpg);
+}
+#mid{
+    padding:5px;
+    background-color: rgba(193, 230, 208, 0.1);
+}
+#mid h3{
+    font-family: monospace;
+    text-align: center;
+}
+#sous_menu{
+    border:1px solid black;
+    float:left;
+    width:150px;
+    border:1px solid black;
+    padding:25px;
+    background-color: #FFFFF0;
+
+
+}
+#sous_menu a{
+    text-decoration:none;
+    font-size:14px;
+    color:#556B2F;
+}
+#sous_menu ul li{
+    list-style: none outside none;
+}
+#zone_affichage{
+    border:1px solid black;
+    width:auto;
+    margin-left:204px;
+    padding:50px;
+    background-color: #FFFFF0;
+
+}
+#bot{
+    height:21px;
+    border-top: 1px solid grey;
+}
+*{
+    margin:0;
+    padding:0;
+}
+
+#sous_menu a:hover{
+    color:#228B22;
+}
+div #bot p {
+    color: #808080;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-right: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align:center;
+}
+label{
+    display:block;
+    margin: 0;
+}
+
+input{
+    border:1px solid #ACACAC;
+}
