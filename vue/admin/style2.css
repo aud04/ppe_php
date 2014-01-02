@@ -33,6 +33,7 @@ body{
     height: 17px;
     padding: 0;
     border: none;
+    cursor: pointer;
 }
 #sous_menu a{
     text-decoration:none;
