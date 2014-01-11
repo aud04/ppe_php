@@ -119,13 +119,16 @@ class Utilisateur {
             header("Location: ../compte.php?p=compte");
         }
     }
+    public function supprimerUtilisateur($id_utilisateur){
+        $bdd->query('DELETE * FROM ppe_utilisateur WHERE id_utilisateur="' . $id_utilisateur. '"');
+    }
 
     public function afficherUtilisateurs($id_utilisateur, $login, $email) {
         echo "<tr><td>" . $id_utilisateur . "</td>";
         echo "<td>" . $login . "</td>";
         echo "<td>" . $email . "</td>";
         echo "<td> <a href=\"\">Edit</a> </td>";
-        echo "<td> <a href=\"\">X</a></td>";
+        echo "<td> <a href=\"controleur/deleteMember.php?id_utilisateur=".$id_utilisateur."\">X</a></td>";
     }
 
 }
