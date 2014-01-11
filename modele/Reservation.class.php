@@ -57,19 +57,21 @@ class Reservation {
             // Objet de l'email
             $subject = $nom_client . " : CVVEN - Votre demande de réservation numéro : " . $id_reservation;
             // Provenance
-            $headers = 'From: ' . $nom_client . ' <' . $email_client . '>' . "\r\n" .
+            $headers = 'From: ' . 'Société CVVEN'. ' <' . 'contact@hbdeveloppeur.com' . '>' . "\r\n" .
                     'Reply-To: ' . $email_client . '' . "\r\n" .
                     'X-Mailer: PHP/' . phpversion();
-            //Dans le cas où la demande est rejetée 
-            $message = "Merci d'avoir choisi notre organisation pour vos vacances. \r ---------------- \r"
-                    . "rappel de vos informations de compte : client numéro " . $id_client . " \r ---------------- \r";
+            //Dans le cas où la demande est rejetée
+            $message = "Merci d'avoir choisi notre organisation pour vos vacances. \n ---------------- \n"
+                    . "rappel de vos informations de compte : client numéro " . $id_client . " \n ---------------- \n";
             if ($choix == "refuse"):
+                //Connexion à la base de données
                 include "conn_sql.php";
                 //La réservation est supprimée
                 $bdd->query('DELETE FROM ppe_reservation WHERE id_reservation="' . $id_reservation . '"');
+                $bdd->exec('UPDATE ppe_utilisateur SET nb_reservation=nb_reservation-1 WHERE id_utilisateur = ' . $id_client . '');
                 $message.="Un administrateur à consulté votre demande de réservation et à imposé une réponse négative. "
                         . " En effet malgré la valeur de votre demande, nous ne sommes pas en mesure de faire suite à votre requête.\r"
-                        . " Voici le message de l'administrateur: \r";
+                        . " Voici le message de l'administrateur: \n";
             //Dans le cas où la demande est acceptée 
             else: $message.="Un administrateur à consulté votre demande de réservation et à imposé une réponse positive. "
                         . " Un de nos secretaires prendra contact avec vous par voix téléphonique pour finaliser cette étape. \r";
@@ -78,7 +80,7 @@ class Reservation {
                 $bdd->exec('UPDATE ppe_reservation SET valide = 1 WHERE id_reservation = ' . $id_reservation . '');
             endif;
             $message.=$message_ad;
-            // Fonction PHP pour envoyer l'email.
+            // Fonction PHP pour envoyer l'email
             mail($to, $subject, $message, $headers);
             $_SESSION["r"] = "<p style=\"color:green; font-size:14px;\">Un email à été envoyé au client concerné.</p>";
             header("location: ../compte.php?p=gestion");

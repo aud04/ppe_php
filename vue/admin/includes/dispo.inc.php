@@ -2,9 +2,12 @@
 require('modele/Date.class.php');
 require('modele/conn_sql.php');
 $date = new Date();
-$year = date('Y');
+if(isset($_GET['y'])):
+    $year = $_GET['y'];
+else:
+    $year = date("Y");
+endif;
 $dates = $date->getAll($year);
-
 $req = $bdd->query('SELECT * FROM ppe_dispo');
 $r = array();
 while ($data = $req->fetch()):
@@ -47,7 +50,24 @@ global $link;
 ?>
 
 <div class="periods">
-    <div class="months" style="height:50px;">
+    <?php
+    /*
+     * Possibilité de faire de cette façon, mais la société ne préviligie pas
+     * le mélange html / php.
+    for ($i = date("Y"); $i < date("Y") + 3; $i++):
+        echo "<a href=\"?p=dispo&y=" . $i;
+        echo "\">";
+        echo $i . "</a>";
+    endfor; */
+    ?>
+    <div id="years">
+        <a href="?p=dispo&y=2013" >2013</a>
+        -
+        <a href="?p=dispo&y=2014" >2014</a>
+        -
+        <a href="?p=dispo&y=2015" >2015</a>
+    </div>
+    <div class="months" style="height: 50px; margin-left: 20px; margin-top: 5px;">
 
         <ul>
             <?php foreach ($date->months as $id => $m): ?>
@@ -72,7 +92,8 @@ global $link;
                     </thead>
                     <tbody>
                         <tr>
-                            <?php $end = end($days);
+                            <?php
+                            $end = end($days);
                             foreach ($days as $d => $w):
                                 $time = strtotime("$year-$m-$d");
                                 ?>
@@ -119,11 +140,11 @@ global $link;
                                 </td>
                                 <?php if ($w == 7): ?>
                                 </tr><tr>
-        <?php endif; ?>
-    <?php endforeach; ?>
-    <?php if ($end != 7): ?>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                            <?php if ($end != 7): ?>
                                 <td colspan="<?php echo 7 - $end; ?>" class="padding"></td>
-        <?php endif; ?>
+    <?php endif; ?>
                         </tr>
                     </tbody>
                 </table>
@@ -131,10 +152,10 @@ global $link;
         </center>
     <?php endforeach; ?>
     <br />
-<?php
-$req = $bdd->query('SELECT * FROM ppe_article WHERE id_article = 1');
-$data = $req->fetch();
-echo stripslashes($data["contenu_article"]);
-?>
+    <?php
+    $req = $bdd->query('SELECT * FROM ppe_article WHERE id_article = 1');
+    $data = $req->fetch();
+    echo stripslashes($data["contenu_article"]);
+    ?>
 
 </div>

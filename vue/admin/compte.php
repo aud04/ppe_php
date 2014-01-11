@@ -72,8 +72,12 @@ endif;
 
             </div>
             <div id="sous_menu2">
+                <?php
+                $req = $bdd->query('SELECT * FROM ppe_utilisateur where id_utilisateur = ' . $_SESSION['id'] . '');
+                $data = $req->fetch();
+                ?>
                 <form action="modele/destroy.php" style="float: left; padding-left: 40px;" name="disconnect" method="post">
-                    <div style="float:left;margin-right:10px;"><label class="welcome">Bienvenue <?php echo $_SESSION['nom']; ?></label></div>
+                    <div style="float:left;margin-right:10px;"><label class="welcome">Bienvenue <?php echo $_SESSION['nom']; ?> | nombre de location (en cours ou en attente) : <?php echo $data['nb_reservation']; ?></label></div>
                     <div style="float:left;margin-top:2px;"><input type="submit" value="" class="btn_logout" name="disconnect"></div>
                 </form>
                 <div class="clear"></div>
@@ -81,7 +85,7 @@ endif;
 
             <div id="mid">
                 <div id="sous_menu">
-                    <?php include "includes/menu.inc.php"; ?>
+<?php include "includes/menu.inc.php"; ?>
                 </div>
 
                 <div id="zone_affichage">

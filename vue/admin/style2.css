@@ -29,7 +29,7 @@ body{
 }
 .btn_logout{
     background: url("../../modele/images/deco_bar.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    width: 90px;
+    width: 86px;
     height: 17px;
     padding: 0;
     border: none;
@@ -87,6 +87,16 @@ body{
 #sous_menu a:hover{
     color:#228B22;
 }
+#years a{
+    text-decoration: none;
+    color:#D90000;
+}
+#years {
+    border: 1px solid #ACACAC;
+    text-align: center;
+    word-spacing: 5px;
+}
+    
 .year {
     color: #D90000;
     font-size: 85px;
