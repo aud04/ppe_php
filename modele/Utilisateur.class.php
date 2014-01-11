@@ -120,6 +120,7 @@ class Utilisateur {
         }
     }
     public function supprimerUtilisateur($id_utilisateur){
+        include"conn_sql.php";
         $bdd->query('DELETE * FROM ppe_utilisateur WHERE id_utilisateur="' . $id_utilisateur. '"');
     }
 
