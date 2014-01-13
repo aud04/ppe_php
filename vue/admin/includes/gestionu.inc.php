@@ -1,5 +1,5 @@
 
-<center><h2>Gestion des utilisateurs</h4><br />
+<h2>Gestion des utilisateurs</h4><br />
 <table class="gestionu">
 	<thead>
 		<th>Id</th>
@@ -10,7 +10,7 @@
 	</thead>
 	<tbody>
             <?php
-            $req = $bdd->query('SELECT * FROM ppe_utilisateur');
+            $req = $bdd->query('SELECT * FROM ppe_utilisateur WHERE id_utilisateur !=1');
             while($data = $req->fetch()):
 		$NM= new Utilisateur($data['login'], $data['mdp'], $data['email']);
 		$NM->afficherUtilisateurs($data['id_utilisateur'], $data['login'], $data['email']);

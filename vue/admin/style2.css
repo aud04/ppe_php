@@ -168,6 +168,10 @@ table.gestion tr td{
     text-align: center;
     padding: 4px;
 }
+table.gestionu tr td{
+   font-size: 16px;
+   padding:0 2px;
+}
 table.account tr td{
     text-align: left;
     width: 180px;

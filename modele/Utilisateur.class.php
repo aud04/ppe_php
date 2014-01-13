@@ -18,13 +18,16 @@ class Utilisateur {
     //Cette fonction permet à un utilisateur de se connecter
     public function seConnecter($login, $password) {
         include"conn_sql.php";
-        $req = $bdd->prepare('SELECT * FROM ppe_utilisateur WHERE login = :login AND mdp= :pwd ');
+        $req = $bdd->prepare('SELECT * FROM ppe_utilisateur WHERE'
+                . ' login = :login AND mdp= :pwd ');
         $req->execute(array('login' => $login, 'pwd' => sha1($password)));
         $data = $req->fetch();
 
         // Cas où la requête renvoit aucun résultat
         if (!$data) {
-            $_SESSION['result'] = "<p style=\"font-size:13px; color:red;font-style:italic;\">Une erreur s'est produite.</p>";
+            $_SESSION['result'] = "<p style=\"font-size:13px;"
+                    . " color:red;font-style:italic;\">"
+                    . "Une erreur s'est produite.</p>";
             header('location:  ../index.php?p=connexion');
         } else {
             $_SESSION['id'] = $data['id_utilisateur'];
@@ -121,7 +124,12 @@ class Utilisateur {
     }
     public function supprimerUtilisateur($id_utilisateur){
         include"conn_sql.php";
-        $bdd->query('DELETE * FROM ppe_utilisateur WHERE id_utilisateur="' . $id_utilisateur. '"');
+        $bdd->query('DELETE FROM ppe_utilisateur WHERE id_utilisateur="' . $id_utilisateur. '"');
+    }
+    
+    public function editUtilisateur($id_utilisateur){
+        include"conn_sql.php";
+        
     }
 
     public function afficherUtilisateurs($id_utilisateur, $login, $email) {
