@@ -63,24 +63,24 @@ class Utilisateur {
                 if ($npassword === $password) {
                     if ($data) {
                         $_SESSION['addMemberResult'] = "<p style=\"font-size:13px; color:red;font-style:italic;\">L'identifiant/email est indisponible.</p>";
-                        header("Location: ../index.php?p=inscription");
+                        
                     } else {
                         // Le membre peut être ajouter dans la bdd
                         $bdd->exec('INSERT INTO ppe_utilisateur(login, mdp, date_inscription, email, nom) VALUES("' . $login . '", "' . sha1($password) . '",NOW(), "' . $email . '","'.$nom.'")');
                         $_SESSION['addMemberResult'] = "<p style=\"font-size:13px; color:green;font-style:italic;\">Le membre \"" . $login . "\" a été ajouté avec succès.</p>";
-                        header("Location: ../index.php?p=inscription");
+                        
                     }
                 } else {
                     $_SESSION['addMemberResult'] = "<p style=\"font-size:13px; color:red;font-style:italic;\">Les mots de passe ne correspondent pas.</p>";
-                    header("Location: ../index.php?p=inscription");
+                    
                 }
             } else {
                 $_SESSION['addMemberResult'] = "<p style=\"font-size:13px; color:red;font-style:italic;\">L'adresse email n'est pas valide.</p>";
-                header("Location: ../index.php?p=inscription");
+                
             }
         } else {
             $_SESSION['addMemberResult'] = "<p style=\"font-size:13px; color:red;font-style:italic;\">Il faut remplir tout les champs.</p>";
-            header("Location: ../index.php?p=inscription");
+            
         }
     }
 
@@ -127,16 +127,19 @@ class Utilisateur {
         $bdd->query('DELETE FROM ppe_utilisateur WHERE id_utilisateur="' . $id_utilisateur. '"');
     }
     
-    public function editUtilisateur($id_utilisateur){
+    public function modifierUtilisateur($statut, $id_utilisateur){
         include"conn_sql.php";
-        
+        if($statut==1 or $statut==0 and $id_utilisateur !=1){
+            $bdd->query('UPDATE ppe_utilisateur SET pouvoir = '.$statut.' WHERE id_utilisateur = '.$id_utilisateur.'');
+        }
     }
+    
 
     public function afficherUtilisateurs($id_utilisateur, $login, $email) {
         echo "<tr><td>" . $id_utilisateur . "</td>";
         echo "<td>" . $login . "</td>";
         echo "<td>" . $email . "</td>";
-        echo "<td> <a href=\"\">Edit</a> </td>";
+        echo "<td> <a href=\"compte.php?p=gestionu&y=3&id_utilisateur=".$id_utilisateur."\">Edit</a> </td>";
         echo "<td> <a href=\"controleur/deleteMember.php?id_utilisateur=".$id_utilisateur."\">X</a></td>";
     }
 

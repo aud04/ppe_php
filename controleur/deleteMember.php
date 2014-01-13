@@ -1,12 +1,11 @@
-<?php
-
-/**
+<?php/**
  * suppression utilisateur
  * 
  * Appel de la méthode pour supprimer un utilisateur.
  * 
  * @author { Audrey Stephan } [ <aud.stephan@gmail.com> ]
  */
+?>
 
 // Protection par URL, l'utilisateur ne peut pas supprimer le super admin par
 // variable passée en URL.
@@ -17,5 +16,5 @@ else:
     include "../modele/Utilisateur.class.php";
     $MLK = new Utilisateur("test","test","test");
     $MLK->supprimerUtilisateur($_GET["id_utilisateur"]);
-    header("location: ../compte.php?p=gestionu");
+    header("location: ../compte.php?p=gestionu&y=1");
 endif;
