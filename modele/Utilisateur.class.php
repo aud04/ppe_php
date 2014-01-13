@@ -33,6 +33,7 @@ class Utilisateur {
             $_SESSION['id'] = $data['id_utilisateur'];
             $_SESSION['login'] = $data['login'];
             $_SESSION['nom'] = $data['nom'];
+            $_SESSION['email'] = $data['email'];
             header('location:  ../compte.php');
         }
     }

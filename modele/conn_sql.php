@@ -8,7 +8,7 @@ try
      //$bdd = new PDO('mysql:host=localhost;dbname=ppejura', 'root', '');
      
      // Ou se connecte à MySQL de mon localhost(linux)
-     $bdd = new PDO('mysql:host=localhost;dbname=ppeJura', 'root', 'test');
+     $bdd = new PDO('mysql:host=localhost;dbname=ppeJura', 'root', 'TEST');
      
 }
 catch(Exception $e)

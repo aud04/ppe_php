@@ -118,6 +118,8 @@ endif;
 
                     elseif (isset($_GET["p"]) and $_GET["p"] == "demande_valide"):
                         include "vue/admin/includes/reservation_valide.inc.php";
+                    elseif (isset($_GET["p"]) and $_GET["p"] == "contacter"):
+                        include "vue/admin/includes/contacter.inc.php";
 
                     else: include "vue/admin/includes/dispo.inc.php";
                     endif;

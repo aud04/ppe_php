@@ -11,7 +11,7 @@ $data = $req->fetch();
         <a href="?p=compte">Changer de mot de passe</a>
     </li>
 
-    <?php if (isset($data["pouvoir"]) and $data["pouvoir"] > 0): ?>
+    <?php if (isset($data["pouvoir"]) and $data["pouvoir"] == 1): ?>
         <li>
             <a href="?p=gestion">Gestion des demandes</a>
         </li>
@@ -28,7 +28,7 @@ $data = $req->fetch();
     <?php endif; ?>
     <?php if (isset($data["pouvoir"]) and $data["pouvoir"] == 0): ?>
         <li>
-            <a href="?p=gestion">Contacter un administrateur</a>
+            <a href="?p=contacter">Contacter un administrateur</a>
         </li>
     <?php endif; ?>
 
