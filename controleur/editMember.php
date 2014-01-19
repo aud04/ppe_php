@@ -5,8 +5,7 @@
  * 
  * @author { Audrey Stephan } [ <aud.stephan@gmail.com> ]
  */
-?>
-<?php
+// On permet l'accès aux variables session.
 session_start();
 include "../modele/Utilisateur.class.php";
 $MLK = new Utilisateur("test","test","test");

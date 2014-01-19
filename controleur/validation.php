@@ -9,6 +9,7 @@
  * 
  * @author { Hocine Belbouab } [ <contact@hbdeveloppeur.com> ]
  */
+// On permet l'accès aux variables session.
 session_start();
 include "../modele/Reservation.class.php";
 $MLK = new Reservation($_SESSION["forfait"], $_SESSION["menage"], $_SESSION["id_utilisateur"], $_SESSION["date_reservation"], $_SESSION["date"], $_SESSION["logement"]);

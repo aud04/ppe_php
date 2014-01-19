@@ -7,6 +7,7 @@
  * 
  * @author { Hocine Belbouab } [ <contact@hbdeveloppeur.com> ]
  */
+// On permet l'accès aux variables session.
 session_start();
 $contenu = stripslashes($_POST["texte"]);
 include "../modele/Article.class.php";

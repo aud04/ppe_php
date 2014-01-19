@@ -5,8 +5,6 @@
  * 
  * @author { Audrey Stephan } [ <aud.stephan@gmail.com> ]
  */
-?>
-
 // Protection par URL, l'utilisateur ne peut pas supprimer le super admin par
 // variable passée en URL.
 if($_GET["id_utilisateur"]==1):

@@ -69,7 +69,7 @@ endif;
     <body>
         <div id="conteneur">
             <div id="top">
-
+                
             </div>
             <div id="sous_menu2">
                 <?php
@@ -82,12 +82,12 @@ endif;
                 </form>
                 <div class="clear"></div>
             </div>
-
+            
             <div id="mid">
                 <div id="sous_menu">
 <?php include "includes/menu.inc.php"; ?>
                 </div>
-
+                
                 <div id="zone_affichage">
                     <?php
                     // Affichage du contenu des fichiers 
@@ -124,7 +124,7 @@ endif;
                     else: include "vue/admin/includes/dispo.inc.php";
                     endif;
                     ?>
-
+                    
                 </div>
                 <div style="clear:both"></div>
             </div>
@@ -132,6 +132,6 @@ endif;
                 <p> PPE - Hocine.B/ Berivan.K / Audrey.S </p>
             </div>
         </div>
-
+        
     </body>
 </html>

@@ -7,8 +7,9 @@
  * 
  * @author { Hocine Belbouab } [ <contact@homerique.com> ]
  */
+// On permet l'accès aux variables session.
 session_start();
 include "../modele/Utilisateur.class.php";
-$MLK = new Message();
-$MLK->envoyerUnMessage();
+$MLK= new Utilisateur($_POST["login"], $_POST["password"], $_POST["email"]);
+$MLK->seConnecter($_POST["login"], $_POST["password"]);
 header('location:  ../compte.php');
