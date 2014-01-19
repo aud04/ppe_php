@@ -77,8 +77,8 @@ endif;
                 $data = $req->fetch();
                 ?>
                 <form action="modele/destroy.php" style="float: left; padding-left: 40px;" name="disconnect" method="post">
-                    <div style="float:left;margin-right:10px;"><label class="welcome">Bienvenue <?php echo $_SESSION['nom']; ?> | nombre de location (en cours ou en attente) : <?php echo $data['nb_reservation']; ?></label></div>
-                    <div style="float:left;margin-top:2px;"><input type="submit" value="" class="btn_logout" name="disconnect"></div>
+                    <div style="float:left;margin-right:10px;margin-top:5px;"><label class="welcome">Bienvenue <?php echo $_SESSION['nom']; ?> | nombre de location (en cours ou en attente) : <?php echo $data['nb_reservation']; ?></label></div>
+                    <div style="float:right;margin-top:0px;"><input type="submit" value="" class="btn_logout" name="disconnect"></div>
                 </form>
                 <div class="clear"></div>
             </div>
