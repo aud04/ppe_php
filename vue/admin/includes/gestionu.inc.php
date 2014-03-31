@@ -1,10 +1,12 @@
-<?php/**
+<?php
+/**
  * suppression utilisateur
  * 
  * Appel de la méthode pour supprimer un utilisateur.
  * 
  * @author { Audrey Stephan } [ <aud.stephan@gmail.com> ]
  */
+ 
 ?>
 
 <?php
