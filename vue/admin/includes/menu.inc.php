@@ -26,11 +26,6 @@ $data = $req->fetch();
         </li>
 
     <?php endif; ?>
-    <?php if (isset($data["pouvoir"]) and $data["pouvoir"] == 0): ?>
-        <li>
-            <a href="?p=contacter">Contacter un administrateur</a>
-        </li>
-    <?php endif; ?>
 
 
 </ul>
