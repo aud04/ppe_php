@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 02 Janvier 2014 à 13:58
+-- Généré le: Ven 04 Avril 2014 à 09:57
 -- Version du serveur: 5.6.12-log
--- Version de PHP: 5.4.16
+-- Version de PHP: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `hbdeveloppeur1`
+-- Base de données: `ppejura`
 --
--- CREATE DATABASE IF NOT EXISTS `ppejura` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
--- USE `ppejura`;
+CREATE DATABASE IF NOT EXISTS `ppejura` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `ppejura`;
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `ppe_reservation` (
   `categorie_logement` int(11) NOT NULL,
   `valide` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_reservation`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
 
 --
 -- Contenu de la table `ppe_reservation`
@@ -114,7 +114,8 @@ CREATE TABLE IF NOT EXISTS `ppe_reservation` (
 
 INSERT INTO `ppe_reservation` (`id_reservation`, `forfait`, `menage`, `id_utilisateur`, `nom_utilisateur`, `email_client`, `date_reservation`, `date`, `categorie_logement`, `valide`) VALUES
 (27, 'Pension complÃ¨te', 'Avec', 21, '', 'test@gmail.com', '2014-01-04', '2014-01-01', 2, 1),
-(28, 'Demi-pension', 'Avec', 1, '', '', '2014-01-04', '2014-01-02', 3, 0);
+(28, 'Demi-pension', 'Avec', 1, '', '', '2014-01-04', '2014-01-02', 3, 0),
+(29, 'Pension complÃ¨te', 'Avec', 1, 'Belbouab Hocine', 'hbdeveloppeur@gmail.com', '2014-01-04', '2014-03-31', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -132,15 +133,18 @@ CREATE TABLE IF NOT EXISTS `ppe_utilisateur` (
   `nom` varchar(255) NOT NULL,
   `nb_reservation` int(11) NOT NULL,
   PRIMARY KEY (`id_utilisateur`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Contenu de la table `ppe_utilisateur`
 --
 
 INSERT INTO `ppe_utilisateur` (`id_utilisateur`, `login`, `mdp`, `date_inscription`, `pouvoir`, `email`, `nom`, `nb_reservation`) VALUES
-(1, 'hbdeveloppeur', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220 ', '2013-11-09', 1, 'hbdeveloppeur@gmail.com', 'Belbouab Hocine', 1),
-(21, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '2014-01-01', 0, 'test@gmail.com', 'Test test', 0);
+(1, 'hbdeveloppeur', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220 ', '2013-11-09', 1, 'hbdeveloppeur@gmail.com', 'Belbouab Hocine', 2),
+(21, 'test', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '2014-01-01', 1, 'test@gmail.com', 'Test test', 0),
+(22, 'aud04', '00f36866326da3b8dde0d960226dcd6afb5af127', '2014-04-04', 1, 'aud.stephan@gmail.com', 'Stephan Audrey', 0),
+(23, 'beri62', '271a77093bf07cdb81c0e82ce12c41dfa0a4d6ab', '2014-04-04', 1, 'berivan.kilavuz62@gmail.com', 'Kilavuz Berivan', 0),
+(24, 'Kendrick02', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '2014-04-04', 0, 'Kendrickl@gtmail.com', 'Kendrick Lamar', 0);
 
 -- --------------------------------------------------------
 
