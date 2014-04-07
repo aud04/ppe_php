@@ -53,7 +53,7 @@ endif;
                     "save table contextmenu directionality emoticons template paste textcolor"
                 ],
                 content_css: "css/content.css",
-                toolbar: "insertfile undo redo | sizeselect | bold italic | fontselect |  fontsizeselect | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+                toolbar: "insertfile undo redo | sizeselect | fontselect |  fontsizeselect | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
                 style_formats: [
                     {title: 'Bold text', inline: 'b'},
                     {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},

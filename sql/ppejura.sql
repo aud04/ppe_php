@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Ven 04 Avril 2014 à 09:57
--- Version du serveur: 5.6.12-log
--- Version de PHP: 5.4.12
+-- Host: localhost
+-- Generation Time: Apr 07, 2014 at 05:20 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.3.10-1ubuntu3.8
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,15 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `ppejura`
+-- Database: `ppejura`
 --
-CREATE DATABASE IF NOT EXISTS `ppejura` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ppejura`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ppe_article`
+-- Table structure for table `ppe_article`
 --
 
 CREATE TABLE IF NOT EXISTS `ppe_article` (
@@ -37,16 +35,16 @@ CREATE TABLE IF NOT EXISTS `ppe_article` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Contenu de la table `ppe_article`
+-- Dumping data for table `ppe_article`
 --
 
 INSERT INTO `ppe_article` (`id_article`, `contenu_article`, `auteur_article`, `date_article`) VALUES
-(1, '<p>Modification de la page d''accueil </p>', 'hbdeveloppeur', '2013-12-31');
+(1, '<p>En cliquant sur un samedi des vacances sur le calendrier vous pourrez r&eacute;server. Un administrateur donnera alors une r&eacute;ponse positive ou n&eacute;gative (avec message pour justifier)</p>', 'hbdeveloppeur', '2014-04-07');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ppe_dispo`
+-- Table structure for table `ppe_dispo`
 --
 
 CREATE TABLE IF NOT EXISTS `ppe_dispo` (
@@ -57,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `ppe_dispo` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Contenu de la table `ppe_dispo`
+-- Dumping data for table `ppe_dispo`
 --
 
 INSERT INTO `ppe_dispo` (`id`, `id_client`, `dispo_debut`) VALUES
@@ -67,7 +65,7 @@ INSERT INTO `ppe_dispo` (`id`, `id_client`, `dispo_debut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ppe_logement`
+-- Table structure for table `ppe_logement`
 --
 
 CREATE TABLE IF NOT EXISTS `ppe_logement` (
@@ -79,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `ppe_logement` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Contenu de la table `ppe_logement`
+-- Dumping data for table `ppe_logement`
 --
 
 INSERT INTO `ppe_logement` (`id_logement`, `categorie`, `description`, `nbre_logement`) VALUES
@@ -91,7 +89,7 @@ INSERT INTO `ppe_logement` (`id_logement`, `categorie`, `description`, `nbre_log
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ppe_reservation`
+-- Table structure for table `ppe_reservation`
 --
 
 CREATE TABLE IF NOT EXISTS `ppe_reservation` (
@@ -109,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `ppe_reservation` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
 
 --
--- Contenu de la table `ppe_reservation`
+-- Dumping data for table `ppe_reservation`
 --
 
 INSERT INTO `ppe_reservation` (`id_reservation`, `forfait`, `menage`, `id_utilisateur`, `nom_utilisateur`, `email_client`, `date_reservation`, `date`, `categorie_logement`, `valide`) VALUES
@@ -120,7 +118,7 @@ INSERT INTO `ppe_reservation` (`id_reservation`, `forfait`, `menage`, `id_utilis
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ppe_utilisateur`
+-- Table structure for table `ppe_utilisateur`
 --
 
 CREATE TABLE IF NOT EXISTS `ppe_utilisateur` (
@@ -136,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `ppe_utilisateur` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
--- Contenu de la table `ppe_utilisateur`
+-- Dumping data for table `ppe_utilisateur`
 --
 
 INSERT INTO `ppe_utilisateur` (`id_utilisateur`, `login`, `mdp`, `date_inscription`, `pouvoir`, `email`, `nom`, `nb_reservation`) VALUES
@@ -149,7 +147,7 @@ INSERT INTO `ppe_utilisateur` (`id_utilisateur`, `login`, `mdp`, `date_inscripti
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ppe_vacances_scolaires`
+-- Table structure for table `ppe_vacances_scolaires`
 --
 
 CREATE TABLE IF NOT EXISTS `ppe_vacances_scolaires` (
@@ -161,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `ppe_vacances_scolaires` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Contenu de la table `ppe_vacances_scolaires`
+-- Dumping data for table `ppe_vacances_scolaires`
 --
 
 INSERT INTO `ppe_vacances_scolaires` (`id_vacances`, `designation`, `date_debut`, `date_fin`) VALUES
